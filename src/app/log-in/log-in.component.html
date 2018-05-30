@@ -1,0 +1,23 @@
+<div class="row logInFrom text-center">
+    <div class="col-sm-offset-3 col-sm-6 logInHeader">ANY TIME LIBRARY</div>
+    <div class="col-sm-offset-4 col-sm-6 padding-top-15">
+        <form>
+            <div class="input-group input-group-lg">
+                <label>User Name </label>
+
+                <input #user type="text" class="form-control logInControl" placeholder="Username" aria-describedby="sizing-addon1" [(ngModel)]="username"
+                    name="userName">
+            </div>
+            <div class="input-group input-group-lg padding-top-15">
+                <label>Password</label>
+
+                <input #pass type="password" class="form-control logInControl" placeholder="Password" aria-describedby="sizing-addon2" [(ngModel)]="password"
+                    name="Password">
+            </div>
+            <div class=" col-sm-6 text-center padding-top-15">
+                <button class="btn btn-info btn-lg logInBtn" (click)="logIn(username,pass.value);">Log In</button>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+  <h3 class="text-center" *ngIf="issuedBook.length<1">Currently Nothing Assigned to you</h3>
+  <h3 class="text-center" *ngIf="issuedBook.length>0">List of books currently assigned to you</h3>
+  <table *ngIf="issuedBook.length>0" class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Index</td>
+        <td>
+          Title
+        </td>
+        <td>
+          Author
+        </td>
+        <td>
+          Issued Date
+        </td>
+        <td>
+          Due Date
+        </td>
+        <td>
+          Action
+        </td>
+        <td>Please provide rating to book</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of issuedBook; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.fromDate | date}}</td>
+        <td>{{book.dueDate | date}}</td>
+        <td>
+          <button type="button" class="btn btn-info atlBtn" (click)="returnBook(book,i);">Return</button>
+        </td>
+        <td>
+          <p>Rate Book:&nbsp;<span *ngFor="let rate of [1,2,3,4,5];" [ngClass]="{'glyphicon':true, 'glyphicon-star-empty': (book.rating<rate), 'emptyStar': (book.rating<rate), 'glyphicon-star': (book.rating>=rate),'colorStar': (book.rating>=rate)  }"
+              (click)="ratingToBook(rate,i)"></span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<hr>
+<div class="row">
+  <h3 class="text-center" *ngIf="logs.length<1">No book transaction so far for you</h3>
+  <h3 class="text-center" *ngIf="logs.length>0">List of Books issued to you so far.</h3>
+  <table *ngIf="logs.length>0" class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Index</td>
+        <td>
+          Title
+        </td>
+        <td>
+          Author
+        </td>
+        <td>
+          Issued Date
+        </td>
+        <td>
+          Returned Date
+        </td>
+        <td>
+          Rated with
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of logs; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.fromDate | date}}</td>
+        <td>{{book.toDate | date}}</td>
+        <td>
+          <span *ngFor="let rate of [1,2,3,4,5];" [ngClass]="{'glyphicon':true, 'glyphicon-star-empty': (book.rating<rate), 'emptyStar': (book.rating<rate), 'glyphicon-star': (book.rating>=rate),'colorStar': (book.rating>=rate)  }"></span>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

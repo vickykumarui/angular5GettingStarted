@@ -1,0 +1,36 @@
+<div *ngIf="!editMode" class="row">
+  <h3 class="text-center">ATL Configuration</h3>
+  <div class="col-sm-6 col-xs-offset-3 col-xs-6">
+    <form class="form form-horizontal">
+      <div class="form-group">
+        <label>Book Limit (count per user) :</label> {{configData.maximumBookAllowed}}
+      </div>
+      <div class="form-group">
+        <label>Day Limit (per issue):</label> {{configData.maximumDayAllowed}}
+      </div>
+      <div class="text-center col-sm-offset-4 col-sm-4">
+        <button type="button" class="btn btn-info btnConf" (click)="editMode = true;">Change configuration</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="editMode" class="row">
+  <h3 class="text-center">ATL Configuration</h3>
+  <div class="col-sm-6 col-xs-offset-3 col-xs-6">
+    <form class="form form-horizontal">
+      <div class="form-group">
+        <label>Book Limit (count per user)</label>
+        <input type="text" name="bpu" class="form-control" [(ngModel)]="configData.maximumBookAllowed">
+      </div>
+      <div class="form-group">
+        <label>Day Limit (per issue)</label>
+        <input type="text" name="dpi" class="form-control" [(ngModel)]="configData.maximumDayAllowed">
+      </div>
+      <div class="text-center col-sm-offset-4 col-sm-4">
+        <button type="button" class="btn btn-info btnConf" (click)="updateConfig(configData);editMode = false;">Update</button>
+
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.btnTrackPanel{
+    margin-bottom: 10px;
+    .libBtn{
+        padding: 10px 0px;
+        background-color: #378fbd;
+        color: white;
+        font-size: 18px;
+        border: 0px;
+    }
+    .libBtnActive{
+        background-color: #378fbd !important;
+        color:black;
+    }
+    .wid100{
+        width:100px;
+    }
+}
+
+.overflow-y-scroll{
+    overflow-y: auto;
+}
+
+table tbody tr:nth-child(odd) td{
+    background: gray;
+}
+thead{
+    background: black;
+    color: white
+}

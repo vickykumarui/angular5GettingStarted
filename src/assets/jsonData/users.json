@@ -1,0 +1,38 @@
+[
+	{
+		"username": "random",
+		"password": "random",
+		"email": "random.random@gmail.com",
+		"firstName": "random",
+		"lastName": "random",
+		"userId": "102",
+		"ratedBooks": [],
+		"booksLiked": [],
+		"issuedBooks": [],
+		"logs": []
+	},
+	{
+		"username": "vicky",
+		"password": "vicky@123",
+		"email": "vicky.kumar@mindtre.com",
+		"firstName": "vicky",
+		"lastName": "kumar",
+		"userId": "101",
+		"ratedBooks": [],
+		"booksLiked": [],
+		"issuedBooks": [],
+		"logs": []
+	},
+	{
+		"username": "kumar",
+		"password": "kumar@123",
+		"email": "kumar.vicky@gmail.com",
+		"firstName": "kumar",
+		"lastName": "vicky",
+		"userId": "103",
+		"ratedBooks": [],
+		"booksLiked": [],
+		"issuedBooks": [],
+		"logs": []
+	}
+]

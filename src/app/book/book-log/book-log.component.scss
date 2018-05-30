@@ -1,0 +1,18 @@
+.emptyStar{
+    font-size: 20px;
+}
+.colorStar{
+    font-size: 20px;
+    color:blue;
+}
+.overflow-y-scroll{
+    overflow-y: auto;
+}
+
+table tbody tr:nth-child(odd) td{
+    background: gray;
+}
+thead{
+    background: black;
+    color: white
+}

@@ -1,0 +1,57 @@
+<div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="bookCard">
+        <div class="row bookCardData">
+            <div class="col-sm-8 col-xs-8 paddingTop10">
+                <div class="col-sm-4 col-xs-6">
+                    <label>Title</label>
+                </div>
+                <div class="col-sm-6 col-xs-6">{{bookData.title}}</div>
+                <div class="clearfix"></div>
+                <div class="col-sm-4  col-xs-6">
+                    <label>Author</label>
+                </div>
+                <div class="col-sm-6 col-xs-6">{{bookData.author}}</div>
+                <div class="clearfix"></div>
+                <div class="col-sm-4 col-xs-6">
+                    <label>ISBN</label>
+                </div>
+                <div class="col-sm-6 col-xs-6">{{bookData.isbn}}</div>
+                <div class="clearfix"></div>
+                <div class="col-sm-4 col-xs-6">
+                    <label>Genere</label>
+                </div>
+                <div class="col-sm-6 col-xs-6">{{bookData.genre}}</div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12 col-xs-12 marginBottom5">
+                    <button type="button" [disabled]="issuedBook.length>=booksPerUser || issuedBookIdArray.indexOf(bookData.id)>-1" (click)="issueBook(bookData)"
+                        class="buttonBook cardIssueBtn btn">{{issuedBookIdArray.indexOf(bookData.id)>-1 ? 'Issued' : 'Issue Book'}}</button>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-4 thumbnail marginBottom5" style="height:150px;">
+                <img class="imgHtwt" src="{{bookData.src}}" alt="...">
+            </div>
+        </div>
+        <div class="row bookCardDataDesc">
+            <div class="col-sm-12 col-xs-12 desc">
+                <label>Description</label>:
+                <strong>{{bookData.desciption}}</strong>
+                <br>
+                <div class="col-sm-offset-3 col-sm-5 col-xs-8">
+                    <span class="pull-right">
+                            <label>Rating</label>:
+                            <strong>4 out of 5</strong>
+                            <br>
+                        </span>
+                </div>
+                <div class="col-sm-4 padding0 col-xs-4">
+                    <span class="pull-right">
+                            <label>Likes</label>:
+                            <strong>500</strong>
+                            <br>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="libPanel">
+    <nav class="row navbar navDark desktopPanel">
+        <div class="col-sm-8 col-xs-6">
+            <span class="adSpan">Hello {{userPanelModel.user.firstName}}, Welcome to Any Time Library</span>
+        </div>
+        <div class="col-sm-4 col-xs-6 text-right">
+            <span class="logOutBtn" (click)="logOut();">
+              <span class="logSpan glyphicon glyphicon-log-out"></span>
+            <span class="logSpan">Log Out</span>
+            </span>
+        </div>
+    </nav>
+    <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Click Here to Show Menu</span>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('user-profile');">Profile</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('book-detail');">Books In Library</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('book-logs');">Return Books</a>
+    </div>
+    <div [ngSwitch]="currentPanel">
+        <app-user-profile *ngSwitchCase="'user-profile'" [userData]="userPanelModel.user"></app-user-profile>
+        <app-book-detail-user *ngSwitchCase="'book-detail'" [bookData]="userPanelModel.booksData" [issuedBook]="issuedBook" [getBookPlace]="userPanelModel.issueMetadata"></app-book-detail-user>
+        <app-book-log *ngSwitchCase="'book-logs'" [bookData]="userPanelModel.booksData" [issuedBook]="issuedBook" [getBookPlace]="userPanelModel.issueMetadata"
+            [logs]="logs"></app-book-log>
+        <app-user-profile *ngSwitchDefault [userData]="userPanelModel.user"></app-user-profile>
+    </div>
+</div>

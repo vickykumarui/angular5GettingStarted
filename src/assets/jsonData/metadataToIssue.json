@@ -1,0 +1,44 @@
+[
+    {
+        "genre": "Technology",
+        "block": 1,
+        "titleStart": [
+            {
+                "letters": "ABCDEFGHIJKLM",
+                "place": "1"
+            },
+            {
+                "letters": "MNOPQRSTUVWXY",
+                "place": "2"
+            }
+        ]
+    },
+    {
+        "genre": "Sports",
+        "block": 2,
+        "titleStart": [
+            {
+                "letters": "ABCDEFGHIJKLM",
+                "place": "1"
+            },
+            {
+                "letters": "MNOPQRSTUVWXY",
+                "place": "2"
+            }
+        ]
+    },
+    {
+        "genre": "Fiction",
+        "block": 3,
+        "titleStart": [
+            {
+                "letters": "ABCDEFGHIJKLM",
+                "place": "1"
+            },
+            {
+                "letters": "MNOPQRSTUVWXY",
+                "place": "2"
+            }
+        ]
+    }
+]

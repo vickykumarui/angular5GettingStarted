@@ -1,0 +1,28 @@
+<div class="row">
+    <span title="Search and Filter" class="squareDots glyphicon glyphicon-th" (click)="showSearchFilter =!showSearchFilter"></span>
+    <div class="col-sm-12 searchFilterPanel raisedDiv" *ngIf="showSearchFilter">
+        <div class="col-sm-6">
+            <label>Search book by title or author</label>
+            <input type="text" class="form-control" placeholder="Enter book name or author name" [(ngModel)]="searchVal">
+            <button class="buttonBook" (click)="searchBook(searchVal)">Search Book </button>
+        </div>
+        <div class="col-sm-6">
+            <label>Select Book Type to filter</label><span _ngcontent-c3="" class="floatRight" (click)="!showSearchFilter = false">X</span>
+            <select (change)="filterBook(filterValue)" class="form-control" [(ngModel)]="filterValue">
+                        <option *ngFor="let filterVal of filterValueArray" [ngValue]="filterVal">{{filterVal}}</option>
+                    </select>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-sm-12" *ngIf="bookDataToDIsplay.length > 0">
+
+        <button class="buttonBook" [disabled]="currentPage === 1" (click)="previousPage()">Prev</button> <label>Page {{currentPage}} of {{noOfPage}}</label>        <button [disabled]="currentPage === noOfPage" (click)="nextPage()" class="buttonBook">Next</button>
+    </div>
+    <div class="col-sm-12" *ngIf="bookDataToDIsplay.length > 0">
+        <app-book-detail-title *ngFor="let book of bookDataToDIsplay let in = index" [bookData]="book" [issuedBook]="issuedBook"
+            [getBookPlace]="getBookPlace" [ind]="in"></app-book-detail-title>
+    </div>
+    <div class="col-sm-12 alert alert-danger" *ngIf="!bookDataToDIsplay.length">
+        <span>Sorry No Book exists with this name  or author</span>
+    </div>
+</div>

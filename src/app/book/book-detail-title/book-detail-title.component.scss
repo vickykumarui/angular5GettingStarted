@@ -1,0 +1,43 @@
+
+    .bookCard{
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+        padding: 0px;
+        margin:5px;
+        .bookCardData{
+            padding-right: 20px;
+            padding-top: 10px;
+            .cardIssueBtn{
+                margin-top: 5px;
+                width: 100%;
+                border-radius: 0px;
+            }
+        }
+        .bookCardDataDesc{
+            padding: 0px 15px;
+            .desc{
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+            }
+        }
+    }
+
+.padding0{
+    padding:0px;
+}
+.paddingTop10{
+    padding-top: 10px !important;
+}
+.marginBottom5{
+    margin-bottom: 5px !important;
+}
+
+.imgHtwt{
+    height: 150px;
+    width: 150px;
+}
+
+.buttonBook {
+    color: white;
+    background: darkblue;
+}

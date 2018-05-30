@@ -1,0 +1,80 @@
+<div class="row overflow-y-scroll">
+  <div class="row text-center btnTrackPanel">
+    <div class="btn-group" role="group">
+      <button type="button" [ngClass]="{'btn':true, 'wid100':true, 'libBtn':true, 'libBtnActive':currentTrack==='by-book'}" (click)="setCurrentTrack('by-book');">By Books</button>
+      <button type="button" [ngClass]="{'btn':true, 'wid100':true, 'libBtn':true, 'libBtnActive':currentTrack==='by-user'}" (click)="setCurrentTrack('by-user');">By Users</button>
+    </div>
+  </div>
+  <table *ngIf="currentTrack==='by-book'" class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Index</td>
+        <td>
+          Title
+        </td>
+        <td>
+          Author
+        </td>
+        <td>
+          Issued/Available
+        </td>
+        <td>
+          Issued To
+        </td>
+        <td>
+          From Date
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of booksIssued; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.issuedTo.length}}/{{book.totalPresent}}</td>
+        <td>
+          <span *ngIf="book.issuedTo.length>0">
+            <span *ngFor="let alloted of book.issuedTo">{{alloted.user}}
+              <br>
+            </span>
+          </span>
+        </td>
+        <td>
+          <span *ngIf="book.issuedTo.length>0">
+            <span *ngFor="let alloted of book.issuedTo">{{alloted.fromDate | date}}
+              <br>
+            </span>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table *ngIf="currentTrack==='by-user'" class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Index</td>
+        <td>
+          Users
+        </td>
+        <td>
+          Book
+        </td>
+        <td>
+          Issued Date
+        </td>
+        <td>
+          Due Date
+        </td>
+      </tr>
+    </thead>
+    <tbody *ngFor="let book of booksIssuedToUser; let i=index;">
+      <tr *ngFor="let buk of book.issuedBooks; let j=index;">
+        <td>{{i+1}}</td>
+        <td>{{book.email}}</td>
+        <td>{{buk.title}}</td>
+        <td>{{buk.fromDate | date}}</td>
+        <td>{{buk.dueDate | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

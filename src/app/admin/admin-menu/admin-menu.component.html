@@ -1,0 +1,26 @@
+<div class="libPanel">
+    <nav class="row navbar navDark desktopPanel">
+        <div class="col-sm-8 col-xs-6">
+            <span class="adSpan">Welcome Back, Admin</span>
+        </div>
+        <div class="col-sm-4 col-xs-6 text-right">
+            <span class="logOutBtn" (click)="logOut();">
+                <span class="logSpan glyphicon glyphicon-log-out"></span>
+            <span class="logSpan">Log Out</span>
+            </span>
+        </div>
+    </nav>
+    <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Click Here to Show Menu</span>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('config-panel');">Configure Settings</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('inventory-manage');">Manage Books</a>
+        <a href="javascript:void(0)" (click)="setCurrentPanel('track-books');">Track Books</a>
+    </div>
+    <div [ngSwitch]="currentPanel">
+        <app-admin-configuration *ngSwitchCase="'config-panel'"></app-admin-configuration>
+        <app-admin-management *ngSwitchCase="'inventory-manage'" [bookData]="booksData"></app-admin-management>
+        <app-admin-track-books *ngSwitchCase="'track-books'" [bookData]="booksData"></app-admin-track-books>
+        <app-admin-configuration *ngSwitchDefault></app-admin-configuration>
+    </div>
+</div>
